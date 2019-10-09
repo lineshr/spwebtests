@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,20 +15,17 @@ public class TestingBotTest {
 
     @BeforeClass
     public void setUp() throws Exception {
-        DesiredCapabilities capabillities = DesiredCapabilities.firefox();
-        capabillities.setCapability("name", "Testing Selenium");
+        DesiredCapabilities capabilities =  DesiredCapabilities.chrome();
+        capabilities.setCapability("name", "Testing Selenium");
 
-        driver = new RemoteWebDriver(
-                new URL("https://localhost"),capabillities);
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub/"),capabilities);
     }
 
     @Test
     public void testSimple() throws Exception {
-        driver.get("https://testingbot.com/");
-        String searchHeader = driver.findElement(By.cssSelector("H1"))
-                .getText().toLowerCase();
+        driver.get("https://www.google.com/");
+        driver.findElement(By.name("q")).sendKeys("heelo");
 
-        Assert.assertTrue(searchHeader.contains("Browser Testing"));
     }
 
     @AfterClass
