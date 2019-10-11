@@ -16,7 +16,7 @@ public class TestingSPWebTests {
         DesiredCapabilities capabilities =  DesiredCapabilities.chrome();
         capabilities.setCapability("name", "Testing Selenium");
 
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub/"),capabilities);
+        driver = new RemoteWebDriver(new URL("http://51.144.224.181:4444/wd/hub/"),capabilities);
     }
 
     @Test
