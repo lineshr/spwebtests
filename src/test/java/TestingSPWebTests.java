@@ -10,24 +10,18 @@ import org.testng.annotations.Test;
 import java.net.URL;
 
 public class TestingSPWebTests {
-    private static RemoteWebDriver driver;
-
-    @BeforeClass
-    public static void setUp() throws Exception {
-        ChromeOptions chromeOptions = new ChromeOptions();
-
-        driver = new RemoteWebDriver(new URL("http://40.114.124.244:4444/wd/hub/"),chromeOptions);
-    }
-
-    @Test
-    public static void testSimple() throws Exception {
-        driver.get("https://www.google.com/");
-        driver.findElement(By.name("q")).sendKeys("heelo");
-
-    }
-
-    @AfterClass
-    public void tearDown() throws Exception {
-        driver.quit();
-    }
+   ChromeOptions options = new ChromeOptions();
+    options.addArguments("--start-maximized");
+    WebDriver driver = new ChromeDriver(options);
+    driver.get("http://localhost:8080/ssgs-ems-profile-editor");
+    WebElement elementName = driver.findElement(By.name("uname"));
+    elementName.sendKeys("Gouri");
+    elementName.sendKeys(Keys.TAB);
+    WebElement elementPwd= driver.findElement(By.name("pwd"));
+    elementPwd.sendKeys("Sohoni");
+    elementPwd.sendKeys(Keys.TAB);
+    WebElement elementLogin =     driver.findElement(By.name("submoit"));
+    elementLogin.sendKeys(Keys.ENTER);
+    Thread.sleep(4000);
+    driver.quit();
 }
