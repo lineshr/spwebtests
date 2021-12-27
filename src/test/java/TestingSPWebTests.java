@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import java.net.URL;
 
 public class TestingSPWebTests {
-   ChromeOptions options = new ChromeOptions();
+   /*ChromeOptions options = new ChromeOptions();
     options.addArguments("--start-maximized");
     WebDriver driver = new ChromeDriver(options);
     driver.get("http://localhost:8080/ssgs-ems-profile-editor");
@@ -23,5 +23,5 @@ public class TestingSPWebTests {
     WebElement elementLogin =     driver.findElement(By.name("submoit"));
     elementLogin.sendKeys(Keys.ENTER);
     Thread.sleep(4000);
-    driver.quit();
+    driver.quit();/*
 }
