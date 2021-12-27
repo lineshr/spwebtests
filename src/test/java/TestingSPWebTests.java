@@ -23,5 +23,5 @@ public class TestingSPWebTests {
     WebElement elementLogin =     driver.findElement(By.name("submoit"));
     elementLogin.sendKeys(Keys.ENTER);
     Thread.sleep(4000);
-    driver.quit();/*
+    driver.quit();*/
 }
