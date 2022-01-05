@@ -82,6 +82,8 @@
 
         </plugins>
     </build>
+         <profiles>
+         
                  <profile>
             <id>sonar</id>
             <properties>
@@ -112,5 +114,5 @@
                 </plugins>
             </build>
         </profile>
-
+ </profiles>
 </project>
