@@ -5,8 +5,7 @@ on:
   push:
     branches:
       - master
-  pull_request:
-      types: [opened, synchronize, reopened]
+
 jobs:
   test:
     name: Test - Unit and Integration
