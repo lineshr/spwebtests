@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+
+
+
+name: DAST-site-security-scan-CodeceptJS
+on:
+  workflow_dispatch:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    services:
+      service-name-1:
+        image: owasp/zap2docker-stable
+        ports:
+           - 8090:8090
+    steps:
+          - name: Get from service-1
+            run: 8090:8090
+                 zap.sh -daemon -newsession ./ -addonupdate -config api.disablekey=true -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true -port 8090 -host 0.0.0.0
+
+
