@@ -13,17 +13,11 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    services:
-      service-name-1:
-        image: owasp/zap2docker-stable
-        ports:
-           - 8090:8090
+    
     steps:
-          - name: Get from service-1
-            run:  zap.sh -daemon -newsession ./ -addonupdate -config api.disablekey=true -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true -port 8090 -host 0.0.0.0
-
-
-          - name: setup-chromedriver
-            # You may pin to the exact commit or the version.
-            # uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
-            uses: nanasess/setup-chromedriver@v1.0.1
+    - uses: docker-practice/actions-setup-docker@master
+    - run: |
+        set -x
+        
+        docker version
+        
