@@ -20,4 +20,7 @@ jobs:
         set -x
         
         docker version
-        
+        docker run owasp/zap2docker-stable zap.sh -daemon -newsession ./ -addonupdate -config api.disablekey=true -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true -port 8090:8090 -host 0.0.0.0
+
+
+
